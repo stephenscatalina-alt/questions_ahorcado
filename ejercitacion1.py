@@ -1,21 +1,26 @@
 import random
 import string
-words = [
-    "python",
-    "programa",
-    "variable",
-    "funcion",
-    "bucle",
-    "cadena",
-    "entero",
-    "lista",
-]
-word = random.choice(words)
+categorias  = {
+    "Tecnología": ["python", "programa", "variable", "funcion", "bucle"],
+    "casa": ["cocina", "habitacion", "comedor", "garage"]
+}
+print("Categorías disponibles:")
+for categoria in categorias:
+    print("-", categoria)
+
+eleccion = input("Elegí una categoría: ")
+
+while eleccion not in categorias:
+    print("Categoría no válida")
+    eleccion = input("Elegí una categoría: ")
+word = random.choice(categorias[eleccion])
 guessed = []
 attempts = 6
 puntaje = 0
 print("¡Bienvenido al Ahorcado!")
 print()
+ 
+
 while attempts > 0:
 # Mostrar progreso: letras adivinadas y guiones para las que faltan
     progress = ""
